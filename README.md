@@ -37,7 +37,7 @@ Install triton 3.1.0.
 # create venv
 python3 -m venv vllmenv
 source vllmenv/bin/activate
-https://github.com/Said-Akbar/triton-gcn5.git
+git clone https://github.com/Said-Akbar/triton-gcn5.git
 cd triton-gcn5/python
 # install triton req’s
 pip3 install ninja cmake wheel pybind11
@@ -58,7 +58,7 @@ You can use triton language and its flash attention with [vllm](https://github.c
 
 Add your compiled Triton path to Python path like this e.g. if my compiled Triton is located in downloads/amd_llm folder then:
 
-export PYTHONPATH=/home/ai-llm/Downloads/amd_llm/triton/python:$PYTHONPATH
+`export PYTHONPATH=/home/ai-llm/Downloads/amd_llm/triton-gcn5/python:$PYTHONPATH`
 
 In the same terminal now you should be able to run vllm with tensor parallelism!
 

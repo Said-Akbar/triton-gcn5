@@ -56,6 +56,12 @@ End of installation.
 
 You can use triton language and its flash attention with [vllm](https://github.com/Said-Akbar/vllm-rocm.git), exllamav2 and more.
 
+Add your compiled Triton path to Python path like this e.g. if my compiled Triton is located in downloads/amd_llm folder then:
+
+export PYTHONPATH=/home/ai-llm/Downloads/amd_llm/triton/python:$PYTHONPATH
+
+In the same terminal now you should be able to run vllm with tensor parallelism!
+
 End of custom description.
 
 <div align="center">

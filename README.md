@@ -46,9 +46,9 @@ pip3 install --no-cache-dir --pre torch>=2.6 torchvision torchaudio --index-url 
 # build triton
 pip3 install -e .
 # Optional. Install triton test req’s
-pip3 install scipy numpy pytest lit pandas matplotlib
+# pip3 install scipy numpy pytest lit pandas matplotlib
 # Optional. Run tests:
-python3 -m pytest ./test/unit
+# python3 -m pytest ./test/unit
 
 ```
 

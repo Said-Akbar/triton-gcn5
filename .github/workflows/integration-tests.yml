@@ -127,7 +127,7 @@ jobs:
           echo "pre_commit_hash=$(sha256sum .pre-commit-config.yaml)" >> $GITHUB_OUTPUT
         shell: bash
       - name: Cache pre-commit's cache dir
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           # Note that we cannot use environment variables here given there is
           # no shell to interpret them in the paths.
@@ -168,7 +168,7 @@ jobs:
           echo "datetime=$(date -u -Iseconds)" >> $GITHUB_OUTPUT
         shell: bash
       - name: Cache build dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           # Note that we cannot use environment variables here given there is
           # no shell to interpret them in the paths.
@@ -189,7 +189,7 @@ jobs:
         # files over time.
         name: Restore cache of ccache and Triton compilation artifacts
         if: github.event_name != 'push'
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: |
             ~/.triton/cache
@@ -266,7 +266,7 @@ jobs:
         # evicts cache entries LRU, but maybe this saves a bit of time in CI.)
         name: Save ccache and Triton compilation artifacts to cache
         if: github.ref == 'refs/heads/main'
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           path: ~/.triton/cache ~/.cache/ccache
           key: triton-artifacts-${{ runner.os }}-${{ runner.arch }}-${{ runner.name }}-llvm-${{ steps.cache-key.outputs.llvm }}-${{ steps.cache-key.outputs.datetime }}
@@ -304,7 +304,7 @@ jobs:
           echo "datetime=$(date -u -Iseconds)" >> $GITHUB_OUTPUT
         shell: bash
       - name: Cache build dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           # Note that we cannot use environment variables here given there is
           # no shell to interpret them in the paths.
@@ -325,7 +325,7 @@ jobs:
         # files over time.
         name: Restore cache of ccache and Triton compilation artifacts
         if: github.event_name != 'push'
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: |
             ~/.triton/cache
@@ -388,7 +388,7 @@ jobs:
         # evicts cache entries LRU, but maybe this saves a bit of time in CI.)
         name: Save ccache and Triton compilation artifacts to cache
         if: github.ref == 'refs/heads/main'
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           path: ~/.triton/cache ~/.cache/ccache
           key: triton-artifacts-${{ runner.os }}-${{ runner.arch }}-${{ runner.name }}-llvm-${{ steps.cache-key.outputs.llvm }}-${{ steps.cache-key.outputs.datetime }}
